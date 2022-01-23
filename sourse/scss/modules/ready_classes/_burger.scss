@@ -1,0 +1,47 @@
+//</burger>==================================================================================================================================================
+.burger{
+   display: none;
+   position: relative;
+   width: 30px;
+   height: 20px;
+   &::before,&::after{
+      content: '';
+   }
+   &::before,&::after,&>span{
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      left: 0;
+      background: black;
+      transition: all 0.8s ease 0s;
+   }
+   &::before{
+      top: 0;
+   }
+   &::after{
+      bottom: 0;
+   }
+   &>span{
+      top: 50%;
+      transform: translate(0, -50%);
+   }
+   &.active{
+      &::before{
+         top: 9px;
+         transform: rotate(45deg);
+         transition: all 0.8s ease 0s;
+      }
+      &::after{
+         bottom: 9px;
+         transform: rotate(-45deg);
+         transition: all 0.8s ease 0s;
+      }
+      &>span{
+         transform: scale(0);
+         transition: all 0.8s ease 0s;
+      }
+   }
+   @media (max-width: $mobile){
+      display: block;
+   }
+}

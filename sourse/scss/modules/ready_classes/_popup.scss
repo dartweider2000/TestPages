@@ -1,0 +1,67 @@
+//</popup/base>==================================================================================================================================================
+.popup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.4);
+   z-index: 100;
+   visibility: hidden;
+   opacity: 0;
+   transition: opacity 0.5s ease 0s;
+   &.open{
+      visibility: visible;
+      opacity: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+   }
+   // .popup__body
+   &__body {
+      min-height: 100%;
+      @include flexbox();
+      justify-content: center;
+      align-items: center;
+      @include adaptiveValue('padding', 20, 10);
+   }
+   // .popup__content
+   &__content {
+      max-width: 500px;
+      min-width: 250px;
+      min-height: 300px;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+   }
+   // .popup__close
+   &__close {
+      position: absolute;
+      width: 30px;
+      height: 20px;
+      top: 10px;
+      right: 10px;
+      &::before,&::after{
+         content: '';
+         position: absolute;
+         left: 0;
+         width: 30px;
+         height: 2px;
+         background: black;
+      }
+      &::before{
+         top: 9px;
+         transform: rotate(45deg);
+      }
+      &::after{
+         bottom: 9px;
+         transform: rotate(-45deg);
+      }
+   }
+   // .popup__title
+   &__title {
+      font-size: 35px;
+      margin: 0 0 20px 0;
+   }
+}

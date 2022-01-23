@@ -1,0 +1,12 @@
+//</Flex mixin>==================================================================================================================================================
+@mixin flexbox() { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; }
+//</AdaptiveValue mixin>==================================================================================================================================================
+//$property - свойство, которому задаётся значение, $startValue - начальное значение свойства, $endValue - конечное значение свойства
+@mixin adaptiveValue($property, $startValue, $endValue){
+   @if $canvas{
+      #{$property}: calc(#{$endValue + px} + (#{$startValue} - #{$endValue}) * ((100vw - #{$minWidth + px}) / (#{$canvas} - #{$minWidth})));
+   }
+   @else{
+      #{$property}: calc(#{$endValue + px} + (#{$startValue} - #{$endValue}) * ((100vw - #{$minWidth + px}) / (#{$maxWidthContainer} - #{$minWidth})));
+   }
+}

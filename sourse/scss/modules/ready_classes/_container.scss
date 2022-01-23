@@ -1,0 +1,23 @@
+//</container>==================================================================================================================================================
+.container{
+   max-width: $maxWidthContainer + px;
+   margin: auto;
+   @if $responsiveType == 0{
+      @media (max-width: $desktop){
+         max-width: $mw2 + px;
+      }
+      @media (max-width: $tablet){
+         max-width: $mw3 + px;
+      }
+      @media (max-width: $mobile){
+         max-width: none;
+         padding: 0 $containerPadding + px;
+      }
+   }
+   @else if $responsiveType == 1{
+      @media (max-width: $desktop){
+         max-width: none;
+         padding: 0 $containerPadding + px;
+      }
+   }
+}
